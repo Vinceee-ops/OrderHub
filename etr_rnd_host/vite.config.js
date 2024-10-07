@@ -14,6 +14,13 @@ export default defineConfig({
       shared: ["react", "react-dom"],
     }),
   ],
+  server: {
+    cors: {
+      origin: 'http://localhost:4175',
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      credentials: true,
+    },
+  },
   build: {
     modulePreload: false,
     target: "esnext",
