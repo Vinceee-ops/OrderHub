@@ -1,10 +1,10 @@
 import React, { useState, Suspense } from 'react';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom';
 
 // Lazy load OrderSection and CustomerSection
-const OrderSection = React.lazy(() => import('etr_rnd_orderlist/OrderSection'));
+const OrderSection = React.lazy(() => import('etr_rnd_orderlist/RemoteRoute'));
 const CustomerSection = React.lazy(() => import('etr_rnd_customerlist/CustomerSection'));
 
 const App = () => {
@@ -22,8 +22,8 @@ const App = () => {
   };
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-primary bg-light">
+    <BrowserRouter>
+          <nav className="navbar navbar-expand-lg navbar-primary bg-light">
         <Header />
       </nav>
       <div className="d-flex flex-row flex-grow-1">
@@ -34,7 +34,8 @@ const App = () => {
           </Suspense>
         </div>
       </div>
-    </>
+    </BrowserRouter>
+
   );
 };
 

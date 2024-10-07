@@ -1,6 +1,4 @@
-// Sidebar.js
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Sidebar = ({ activeComponent }) => {
   const handleOrder = () => {
@@ -12,22 +10,20 @@ const Sidebar = ({ activeComponent }) => {
   };
 
   return (
-    <nav className="bg-light sidebar" style={{ width: '250px' }} role="navigation">
-      <div className="container-fluid">
-        <ul className="list-unstyled">
-          <li>
-            <a onClick={handleOrder} className="d-block p-2" role="button" tabIndex={0}>
-              Order List
-            </a>
-          </li>
-          <li>
-            <a onClick={handleCustomer} className="d-block p-2" role="button" tabIndex={0}>
-              Customers List
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div className="d-flex flex-column p-3 text-white bg-light" style={{ width: '280px', height: '100vh' }}>
+      <ul className="nav nav-pills flex-column">
+        <li>
+          <button className="nav-link text-black" onClick={handleOrder}>
+            Orders
+          </button>
+        </li>
+        <li>
+          <button className="nav-link text-black" onClick={handleCustomer}>
+            Customers
+          </button>
+        </li>
+      </ul>
+    </div>
   );
 };
 

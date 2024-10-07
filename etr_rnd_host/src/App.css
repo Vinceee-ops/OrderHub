@@ -1,0 +1,64 @@
+/* Styles for large screens (desktops and laptops) */
+.card {
+    padding: 2em;
+  }
+  
+  .navbar {
+    height: 6rem;
+  }
+  
+  .navbar-brand {
+    margin-left: 5rem;
+  }
+  
+  .logout {
+    margin-right: 5rem;
+  }
+  
+  .home {
+    background-color: white;
+    border-radius: 20px;
+    padding: 2rem;
+  }
+  
+  .border {
+    border-radius: 10px;
+  }
+  
+  .post {
+    border-radius: 10px;
+  }
+  
+  .username {
+    text-decoration: none;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .navbar-brand {
+      margin-left: 2rem;
+    }
+  
+    .logout {
+      margin-right: 2rem;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .navbar-brand {
+      margin-left: 1rem;
+    }
+  
+    .logout {
+      margin-right: 1rem;
+    }
+  
+    .home {
+      padding: 1rem;
+    }
+  
+    .card {
+      padding: 1em;
+    }
+  }
+  

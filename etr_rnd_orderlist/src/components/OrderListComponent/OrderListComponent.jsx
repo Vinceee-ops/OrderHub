@@ -1,17 +1,129 @@
-// ContainerSection.js
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 
-const OrderSection = () => {
+export default function OrderSection() {
+  const navigate = useNavigate();
+  const [active, setActive] = useState(1);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const handleChangeTab = (value) => {
+    setActive(value);
+    setError(null);  
+    setSuccess(null);  
+  };
+
+  const handleLogin = () => {
+    navigate('/Test');
+  };
+
+
   return (
-    <div className="flex-grow-1 bg-light d-flex align-items-center justify-content-center">
-      <div className="bg-white border rounded" style={{ width: '100%', maxWidth: '600px', height: '400px' }}>
-        <h4 className="text-center" style={{ paddingTop: '180px' }}>
-          Order Section
-        </h4>
-      </div>
-    </div>
-  );
-};
+    <>
+      <div className="container">
+        <div className="row rows justify-content-center align-items-center text-center">
+          <div className="col-md-4">
+            {active === 1 ? (
+              <div className="card w-100">
+                Login
+                <form onSubmit={handleLogin}>
+                  <div className="mb-3 mt-3">
+                    <input
+                      className="form-control"
+                      type="email"
+                      id="email"
+                      placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      className="form-control"
+                      type="password"
+                      id="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                {error && <div className="alert alert-danger">{error}</div>}
+                  <button className="btn btn-success w-100" type="submit">
+                    Login
+                  </button>
+                  <div className="d-flex mt-3">
+                    <hr className="border border-2 w-50 border-black" />
+                    OR
+                    <hr className="border border-2 w-50 border-black" />
+                  </div>
+                </div>
+                </form>
 
-export default OrderSection;
+                <div>
+                  Don't have an account?{" "}
+                  <a onClick={() => handleChangeTab(2)} href="#">
+                    Sign Up
+                  </a>{" "}
+                  here
+                </div>
+              </div>
+            ) : (
+              <div className="card w-100">
+                Sign Up
+                <form onSubmit={handleRegister}>
+                  <div className="mb-3 mt-3">
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="username"
+                      placeholder="Username"
+                      onChange={(e) => setUsername(e.target.value)}
+                      value={username}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      className="form-control"
+                      type="email"
+                      id="email"
+                      placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      className="form-control"
+                      type="password"
+                      id="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                    />
+                  </div>
+                  {error && <div className="alert alert-danger">{error}</div>}
+                  {success && <div className="alert alert-success">{success}</div>}
+                  <div className="mb-3">
+                    <button type="submit" className="btn btn-success w-100">Sign Up</button>
+                  </div>
+                </form>
+                <div>
+                  Already have an account?{" "}
+                  <a href="#" onClick={() => handleChangeTab(1)}>
+                    Sign In
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

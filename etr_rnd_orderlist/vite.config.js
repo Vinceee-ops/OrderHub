@@ -9,8 +9,8 @@ export default defineConfig({
       name: "etr_rnd_orderlist",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/Button",
-        "./OrderSection": "./src/components/OrderListComponent/OrderListComponent"
+        // "./OrderSection": "./src/components/OrderListComponent/OrderListComponent"
+        "./RemoteRoute": "./src/remoteRoute/remoteRoute"
       },
       shared: ["react", "react-dom"],
     }),

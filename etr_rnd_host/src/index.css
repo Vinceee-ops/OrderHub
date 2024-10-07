@@ -1,25 +1,23 @@
 
-
 body {
-    background-color: rgb(45, 170, 103);
+  background-color: rgb(45, 170, 103);
+}
+
+.rows{
+  min-height: 100vh;
+}
+@media (max-width: 768px) {
+  .rows {
+    min-height: 80vh; /* Adjust height for smaller screens */
   }
-  
-  .rows{
-    min-height: 100vh;
+}
+
+@media (max-width: 576px) {
+  .rows {
+    min-height: 60vh; /* Further adjust height for even smaller screens */
   }
-  @media (max-width: 768px) {
-    .rows {
-      min-height: 80vh; /* Adjust height for smaller screens */
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .rows {
-      min-height: 60vh; /* Further adjust height for even smaller screens */
-    }
-  }
-  
-  
-  
-  
-  
+}
+
+
+
+
