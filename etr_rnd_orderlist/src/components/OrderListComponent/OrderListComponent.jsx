@@ -1,8 +1,8 @@
 import { useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function OrderSection() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [active, setActive] = useState(1);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -16,9 +16,9 @@ export default function OrderSection() {
     setSuccess(null);  
   };
 
-  const handleLogin = () => {
-    navigate('/Test');
-  };
+  // const handleLogin = () => {
+  //   navigate('/TestSection');
+  // };
 
 
   return (
@@ -26,10 +26,9 @@ export default function OrderSection() {
       <div className="container">
         <div className="row rows justify-content-center align-items-center text-center">
           <div className="col-md-4">
-            {active === 1 ? (
               <div className="card w-100">
                 Login
-                <form onSubmit={handleLogin}>
+                <form>
                   <div className="mb-3 mt-3">
                     <input
                       className="form-control"
@@ -37,8 +36,6 @@ export default function OrderSection() {
                       id="email"
                       placeholder="Email"
                       onChange={(e) => setEmail(e.target.value)}
-                      value={email}
-                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -48,8 +45,6 @@ export default function OrderSection() {
                       id="password"
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
-                      value={password}
-                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -73,57 +68,9 @@ export default function OrderSection() {
                   here
                 </div>
               </div>
-            ) : (
-              <div className="card w-100">
-                Sign Up
-                <form onSubmit={handleRegister}>
-                  <div className="mb-3 mt-3">
-                    <input
-                      className="form-control"
-                      type="text"
-                      id="username"
-                      placeholder="Username"
-                      onChange={(e) => setUsername(e.target.value)}
-                      value={username}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="email"
-                      id="email"
-                      placeholder="Email"
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      className="form-control"
-                      type="password"
-                      id="password"
-                      placeholder="Password"
-                      onChange={(e) => setPassword(e.target.value)}
-                      value={password}
-                    />
-                  </div>
-                  {error && <div className="alert alert-danger">{error}</div>}
-                  {success && <div className="alert alert-success">{success}</div>}
-                  <div className="mb-3">
-                    <button type="submit" className="btn btn-success w-100">Sign Up</button>
-                  </div>
-                </form>
-                <div>
-                  Already have an account?{" "}
-                  <a href="#" onClick={() => handleChangeTab(1)}>
-                    Sign In
-                  </a>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
-      </div>
     </>
   );
 }

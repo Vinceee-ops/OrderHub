@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "app",
+      name: "HostApp",
       remotes: {
         etr_rnd_orderlist: "http://localhost:4173/assets/remoteEntry.js",
         etr_rnd_customerlist: "http://localhost:4174/assets/remoteEntry.js",
@@ -14,6 +14,9 @@ export default defineConfig({
       shared: ["react", "react-dom"],
     }),
   ],
+  resolve: {
+    preserveSymlinks: true,
+  },
   server: {
     cors: {
       origin: 'http://localhost:4175',
@@ -22,6 +25,9 @@ export default defineConfig({
     },
   },
   build: {
+    rollupOptions: {
+      external: ['AppRoutes'], 
+    },
     modulePreload: false,
     target: "esnext",
     minify: false,

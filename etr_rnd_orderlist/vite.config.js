@@ -9,15 +9,20 @@ export default defineConfig({
       name: "etr_rnd_orderlist",
       filename: "remoteEntry.js",
       exposes: {
-        // "./OrderSection": "./src/components/OrderListComponent/OrderListComponent"
-        "./RemoteRoute": "./src/remoteRoute/remoteRoute"
+        "./OrderSection": "./src/components/OrderListComponent/OrderListComponent",
+        "./TestComponent": "./src/components/TestComponent/Testcomponent",
+        // "./RemoteRoutes": "./src/App"
+      },
+      remotes: {
+        etr_rnd_orderlist: "http://localhost:4173/assets/remoteEntry.js",
+        etr_rnd_customerlist: "http://localhost:4174/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
   ],
   server: {
     cors: {
-      origin: 'http://localhost:4175',
+      origin: '*',
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true,
     },
