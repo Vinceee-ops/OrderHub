@@ -1,10 +1,13 @@
 import React from 'react';
 import Main from '../components/Pages/Main/Main';
+import { HostRouting } from 'global-routes';
 
 const AppRoutes = [
     {
-        path: '/OrderSection',
-        element: <Main/>
+        path: '/',
+        element: <Main />
     },
-]
-  export default AppRoutes;
+    ...HostRouting()
+];
+
+export default AppRoutes;

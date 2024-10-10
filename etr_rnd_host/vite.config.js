@@ -7,11 +7,15 @@ export default defineConfig({
     react(),
     federation({
       name: "HostApp",
+      filename: "remoteEntry.js",
       remotes: {
         etr_rnd_orderlist: "http://localhost:4173/assets/remoteEntry.js",
         etr_rnd_customerlist: "http://localhost:4174/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      exposes: {
+        "./Main": "./src/components/Pages/Main/Main"
+      },
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   resolve: {
@@ -25,9 +29,6 @@ export default defineConfig({
     },
   },
   build: {
-    rollupOptions: {
-      external: ['AppRoutes'], 
-    },
     modulePreload: false,
     target: "esnext",
     minify: false,

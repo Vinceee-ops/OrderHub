@@ -1,8 +1,8 @@
 import { useState, useEffect} from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function OrderSection() {
-  // const navigate = useNavigate();
+export default function OrderSection({onShowTest}) {
+  const navigate = useNavigate();
   const [active, setActive] = useState(1);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -16,9 +16,9 @@ export default function OrderSection() {
     setSuccess(null);  
   };
 
-  // const handleLogin = () => {
-  //   navigate('/TestSection');
-  // };
+  const handleLogin = () => {
+    navigate('/TestComponent');
+  };
 
 
   return (
@@ -28,7 +28,7 @@ export default function OrderSection() {
           <div className="col-md-4">
               <div className="card w-100">
                 Login
-                <form>
+                <form onSubmit={handleLogin}>
                   <div className="mb-3 mt-3">
                     <input
                       className="form-control"

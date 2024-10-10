@@ -11,8 +11,16 @@ export default defineConfig({
       remotes: {
         etr_rnd_orderlist: "http://localhost:4173/assets/remoteEntry.js",
         etr_rnd_customerlist: "http://localhost:4174/assets/remoteEntry.js",
+        etr_rnd_host: "http://localhost:4175/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
+  build: {
+    target: 'esnext',
+    modulePreload: { polyfill: false },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'react-router-dom'],
+    },
+  },
 });

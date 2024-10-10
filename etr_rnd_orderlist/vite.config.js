@@ -11,13 +11,12 @@ export default defineConfig({
       exposes: {
         "./OrderSection": "./src/components/OrderListComponent/OrderListComponent",
         "./TestComponent": "./src/components/TestComponent/Testcomponent",
-        // "./RemoteRoutes": "./src/App"
       },
       remotes: {
         etr_rnd_orderlist: "http://localhost:4173/assets/remoteEntry.js",
         etr_rnd_customerlist: "http://localhost:4174/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   server: {
